@@ -1,43 +1,43 @@
 import React from "react";
 // import ArmorService from './services/armor.service.js'
-import ArmorStats from "./ArmorStats";
-import "../src/styles.css";
+// import ArmorStats from "./ArmorStats";
+// import "../src/styles.css";
 
-class ArmorInfo extends React.Component {
+class Weapons extends React.Component {
   constructor() {
     super();
     this.state = {
-      armor: []
+      weapons: []
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/armor")
+    fetch("http://localhost:8080/weapon")
       .then(response => {
         return response.json();
       })
       .then(data => {
-        // console.log(data);
+        console.log(data);
         this.setState({
-          armor: data.map(item => ({
+          weapon: data.map(item => ({
             name: item.name,
             rank: item.rank
             // pieces: item.pieces['defense[3]'],
           }))
         });
-        // console.log(this.state.armor);
+        console.log(this.state.weapon);
       })
       .catch(error => console.log(error));
   }
 
   render() {
-    const renderedAromor = this.state.armor.map((armor, index) => {
-      return <ArmorStats key={index} armor={armor} />;
-    });
-
+    // const renderedAromor = this.state.armor.map((armor, index) => {
+    //   return <ArmorStats key={index} armor={armor} />;
+    // });
+    
     return (
       <div className="wrapper">
-        <div className="header">
+        {/* <div className="header">
           <div className="header-title" />
         </div>
 
@@ -46,10 +46,10 @@ class ArmorInfo extends React.Component {
           <div className="dropdown-content">
             <a href="#">{renderedAromor}</a>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-export default ArmorInfo;
+export default Weapons;

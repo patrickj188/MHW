@@ -6,6 +6,7 @@ const armorURL = "https://mhw-db.com/armor/sets";
 const weaponURL = "https://mhw-db.com/weapons"
 const request = require('request');
 const armorArr = [];
+const weaponArr = [];
 
 app.get('/armor', (req, res) =>{{
     request(armorURL, (err, response, body)=>{
@@ -19,16 +20,22 @@ app.get('/armor', (req, res) =>{{
         for(let key in data){
             armorArr.push(data[key])
         }
-        console.log(armorArr);
+        // console.log(armorArr);
     })
 }} )
 app.get('/weapon', (req, res) =>{{
     request(weaponURL, (err, response, body)=>{
+        if(weaponArr.length > 0){
+            return res.json(weaponArr)
+        }
         if(err){
             console.log(err);
         }
         const data = JSON.parse(body)
-        console.log(data);
+        for(let key in data){
+            weaponArr.push(data[key])
+        }
+        console.log(weaponArr);
     })
 }} )
 
