@@ -7,18 +7,11 @@ const ArmorStats = (props) => {
     const data = props.armor;
     return (
         <div>
-            <form>
-                <fieldset>
-                    <legend>Selecting elements</legend>
-                    <p>
-                        <label>Select list</label>
-                        <select id="myList">
-                           <option value= {data.name} />
-                        </select>
-                    </p>
-                </fieldset>
-            </form>
-
+            <ul>
+                <li>
+                {data.name} 
+                </li>
+            </ul>
         </div>
     )
 }
