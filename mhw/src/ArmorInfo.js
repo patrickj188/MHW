@@ -40,6 +40,7 @@ render(){
         return (
             <div>
                {renderedAromor}
+               Hello
             </div>
         )
     }
