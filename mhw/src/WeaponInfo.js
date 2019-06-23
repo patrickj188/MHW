@@ -1,13 +1,13 @@
 import React from "react";
 // import ArmorService from './services/armor.service.js'
-// import ArmorStats from "./ArmorStats";
-// import "../src/styles.css";
+import WeaponStats from "./WeaponStats";
+import "../src/styles.css";
 
-class Weapons extends React.Component {
+class WeaponInfo extends React.Component {
   constructor() {
     super();
     this.state = {
-      weapons: []
+      weapon: []
     };
   }
 
@@ -21,7 +21,7 @@ class Weapons extends React.Component {
         this.setState({
           weapon: data.map(item => ({
             name: item.name,
-            rank: item.rank
+            type: item.type
             // pieces: item.pieces['defense[3]'],
           }))
         });
@@ -31,25 +31,25 @@ class Weapons extends React.Component {
   }
 
   render() {
-    // const renderedAromor = this.state.armor.map((armor, index) => {
-    //   return <ArmorStats key={index} armor={armor} />;
-    // });
+    const renderedWeapon = this.state.weapon.map((weapon, index) => {
+      return <WeaponStats key={index} weapon={weapon} />;
+    });
     
     return (
       <div className="wrapper">
-        {/* <div className="header">
+        <div className="header">
           <div className="header-title" />
         </div>
 
         <div className="dropdown">
           <button className="dropbtn">Dropdown</button>
           <div className="dropdown-content">
-            <a href="#">{renderedAromor}</a>
+            <a href="#">{renderedWeapon}</a>
           </div>
-        </div> */}
+        </div>
       </div>
     );
   }
 }
 
-export default Weapons;
+export default WeaponInfo;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ArmorInfo from './ArmorInfo'
-import Weapons from './Weapons';
+import WeaponInfo from './WeaponInfo';
 
 
 class App extends React.Component{
@@ -8,7 +8,7 @@ class App extends React.Component{
         return(
             <div>
             <ArmorInfo />
-            <Weapons />
+            <WeaponInfo />
             </div>
         )
     }
